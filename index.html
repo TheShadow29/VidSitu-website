@@ -8,14 +8,34 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Heroic Features - Start Bootstrap Template</title>
+  <title>VidSitu Dataset: Situation Recognition in Videos</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
+  <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
   <link href="css/heroic-features.css" rel="stylesheet">
 
+  <style>
+    .icon {
+      fill: 'white';
+    }
+
+    .icona {
+      /* fill: white; */
+      height: 25px;
+      padding: 4px;
+    }
+
+    .card {
+      border: 0px;
+    }
+
+    .card-text {
+      font-size: small;
+    }
+  </style>
 </head>
 
 <body>
@@ -23,25 +43,36 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- <a class="navbar-brand" href="#">VidSitu Dataset</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
+            <a class="nav-link" href="#">About
+              <!-- <span class="sr-only">(current)</span> -->
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <!-- Add Arxiv Link -->
+            <a class="nav-link" href="#">Paper</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
+            <!-- Download Instructions -->
+            <a class="nav-link" href="#">Download</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <!-- Github Link -->
+            <a class="nav-link" href="#">Code</a>
+          </li>
+          <li class="nav-item">
+            <!-- Exploration Link -->
+            <a class="nav-link" href="#">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
           </li>
         </ul>
       </div>
@@ -49,72 +80,100 @@
   </nav>
 
   <!-- Page Content -->
-  <div class="container">
-
+  <div class="container-fluid">
+    <!-- <img src='assets/mosaic_vidsitu.jpg'> -->
     <!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
-      <h1 class="display-3">A Warm Welcome!</h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-      <a href="#" class="btn btn-primary btn-lg">Call to action!</a>
+    <header class="jumbotron text-center" style='background-image: url("/assets/mosaic_vidsitu.jpg");'>
+      <div>
+        <img src='/assets/tmp_pics/VSitu.png'>
+      </div>
+      <!-- <h1 class="display-3" style='color:white'>VidSitu</h1> -->
+      <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
+        possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
+        repellat.</p> -->
+      <a href="#" class="btn btn-primary btn-lg">
+        <img src="/open-iconic-master/svg/data-transfer-download.svg" class='icona'>Download</a>
+      <a href="#" class="btn btn-primary btn-lg">
+        <img src='/open-iconic-master/svg/file.svg' class="icona">Paper</a>
+      <a href="#" class="btn btn-primary btn-lg">
+        <img src='/open-iconic-master/svg/book.svg' class='icona'>BibTex</a>
+      <a href="#" class='btn btn-primary btn-lg'>
+        <img src='/open-iconic-master/svg/code.svg' class='icona'>Code</a>
+
     </header>
 
     <!-- Page Features -->
-    <div class="row text-center">
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+    <!-- <div class="row text-center"> -->
+    <div class="container">
+      <div class='text-center'>
+        <h1 id="about">About</h1>
+        <p>
+          VidSitu is a large-scale dataset covering a diverse range of videos.
+          Each video is complex and has rich annotations.
+        </p>
+      </div>
+      <!-- </div> -->
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <img src="assets/tmp_pics/scale.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Large-Scale</h5>
+              <p class="card-text">3K Movies, 29K 10-second Movie Clips, 145K Events</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+        <div class="col">
+          <div class="card h-100">
+            <img src="assets/tmp_pics/Diversity.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Diverse Videos</h5>
+              <p class="card-text">Videos in VidSitu are diverse. 224 Verbs appear in at least 100 Events. 336 Distinct
+                Nouns appear in at least 100
+                Videos</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+        <div class="col">
+          <div class="card h-100">
+            <img src="assets/tmp_pics/Complexity.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Complex Videos</h5>
+              <p class="card-text">Videos in VidSitu are complex. More than 80% of the videos have at least 4 unique
+                verbs and 70% of the videos have at least 6 unique entities. </p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+        <div class="col">
+          <div class="card h-100">
+            <img src="assets/tmp_pics/Rich.png" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">Rich Annotations</h5>
+              <p class="card-text">Each Video in VidSitu is annotated with rich structured representations of events
+                that includes verbs, semantic role labels, entitycoreferences, and event relations. </p>
+            </div>
           </div>
         </div>
       </div>
 
     </div>
     <!-- /.row -->
+    <div class="container pt-5">
+      <div class="text-center">
+        <h1 id="download">Download VidSitu</h1>
+        <p>Please find detailed instructions for downloading VidSitu on Github </p>
+      </div>
+
+    </div>
+    <div class="container pt-5">
+      <div class="text-center">
+        <h1 id="contact">Contact</h1>
+        <p>Please reach out to Arka Sadhu (asadhu@usc.edu) for any queries.</p>
+      </div>
+
+    </div>
+
+
 
   </div>
   <!-- /.container -->
@@ -122,7 +181,9 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+      <p class="m-0 text-center text-white">Copyright &copy; PRIOR AI2 2021, Design by <a
+          href="https://startbootstrap.com/template/heroic-features">Bootstrap</a> Adapted by <a
+          href=' https://theshadow29.github.io/'>Arka Sadhu</a></p>
     </div>
     <!-- /.container -->
   </footer>
