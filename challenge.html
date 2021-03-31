@@ -21,6 +21,7 @@
   <link rel="icon" href="https://allenai.org/favicon.ico">
   <script src="./js/style_stuff.js"></script>
   <style>
+
     html {
       scroll-behavior: smooth;
     }
@@ -53,7 +54,7 @@
     #main_bg_img {
       background-image: radial-gradient(circle, rgba(8, 8, 8, 0.6), rgba(45, 45, 45, 0.9)),
         url('/assets/mosaic_vidsitu.jpg');
-      /* background-image: radial-gradient(#000000, #9198e5), url('/assets/mosaic_vidsitu.jpg'); */
+        /* background-image: radial-gradient(#000000, #9198e5), url('/assets/mosaic_vidsitu.jpg'); */
       width: 100%;
       height: 300px;
       background-size: cover;
@@ -121,9 +122,6 @@
       border-color: #0062cc;
     }
 
-    a.navbar-brand {
-      margin-left: 100px;
-    }
   </style>
 
 </head>
@@ -157,22 +155,22 @@
           </li>
           <li class="nav-item">
             <!-- Add Arxiv Link -->
-            <a class="nav-link" href="#paper1">Paper</a>
+            <a class="nav-link" href="/index.html#paper1">Paper</a>
           </li>
           <li class="nav-item">
             <!-- Download Instructions -->
-            <a class="nav-link" href="#download">Download</a>
+            <a class="nav-link" href="/index.html#download">Download</a>
           </li>
           <li class="nav-item">
             <!-- Github Link -->
-            <a class="nav-link" href="#code">Code</a>
+            <a class="nav-link" href="/index.html#code">Code</a>
           </li>
           <li class="nav-item">
             <!-- Exploration Link -->
             <a class="nav-link" href="/challenge.html">Challenge</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
+            <a class="nav-link" href="/index.html#contact">Contact</a>
           </li>
         </ul>
       </div>
@@ -190,9 +188,9 @@
       <div class='container pt-5'>
         <!-- <img src='/assets/VideoSituations.svg' class='img-fluid' style='width: 200px;'> -->
         <!-- <img src='/assets/tmp_pics/VSitu.png' class='img-fluid'> -->
-        <span style="font-size: 100px;">VidSitu
-        </span>
-        <span style='font-size: 25px;'><br>Towards understanding situations in videos <br><br></span>
+        <span style="font-size: 50px;">Video Semantic Role Labeling Challenge</span><br>
+        <span style='font-size: 25px;'><br>Part of the ActivityNet Challenges</span>
+        <span style='font-size: 25px;'><br>CVPR 2021</span>
 
       </div>
       <!-- <div class='container'>
@@ -213,110 +211,52 @@
 
     <!-- Page Features -->
     <!-- <div class="row text-center"> -->
-    <div class="container py-3">
+
+    <div class="container py-0">
       <div class='text-center'>
-        <!-- <h1 id="about">About</h1> -->
-        <p>
-          VidSitu is a large-scale dataset containing diverse 10-second videos from movies depicting complex
-          situations
-          (a collection of related events). Events in the video are richly annotated at 2-second intervals with verbs,
-          semantic-roles, entity co-references, and event relations.
-        </p>
-        <br>
-        <img src='/assets/vidsitu-intro.jpg' class="img-fluid" style="width: 90%;">
+        <h1>Overview</h1>
+        <div class="py-3">
+        </div>
       </div>
       <hr>
     </div>
 
     <div class="container py-0">
       <div class='text-center'>
-        <h1 id="ds_stats">Dataset Statistics</h1>
+        <h1>Data</h1>
         <div class="py-3">
         </div>
-        <div id="ds_cards">
-        </div>
       </div>
       <hr>
     </div>
 
-    <div class='container py-0'>
+    <div class="container py-0">
       <div class='text-center'>
-        <h1 id="tasks">VidSRL Task</h1>
-        <p>
-          Annotations in VidSitu support the Video Semantic Role Labelin (VidSRL) task which consists of 3 subtasks.
-        </p>
-        <div id="task_cards">
-        </div>
-        <hr>
-      </div>
-
-    </div>
-
-    <div class='container py-3' id="paper1">
-      <div class='text-center'>
-        <h1 id="paper" class='text-center'>Paper</h1>
+        <h1>Submission</h1>
         <div class="py-3">
         </div>
-        <p float="left" id="paper_img">
-          <img src='/assets/VidSitu_paper_png/VidSitu_composite_paper.png' width="100%">
-        </p>
-      </div>
-      <div class='py-3 text-center' id='read_paper'>
-        <a href="https://arxiv.org/abs/2003.10606" class="btn btn-primary iconbox">
-          Read the Paper</a>
-      </div>
-
-      <div class='text-left'>
-        <p>
-          If you find our work helpful, please cite the following paper:
-        <p>
-
-        <pre class='bibtex' id='bibtex'><code>@InProceedings{Sadhu_2021_CVPR,
-          author = {Sadhu, Arka and Gupta, Tanmay and Yatskar, Mark and Nevatia, Ram and Kembhavi, Anniruddha},
-          title = {Visual Semantic Role Labeling for Video Understanding},
-          booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-          month = {June},
-          year = {2021}
-}</code></pre>
       </div>
       <hr>
+    </div>
 
-      <h1 id="auths" class='text-center py-3'>Authors</h1>
-      <div id="authors">
+    <div class="container py-0">
+      <div class='text-center'>
+        <h1>Schedule</h1>
+        <div class="py-3">
+        </div>
       </div>
       <hr>
-
     </div>
 
-    <!-- /.row -->
-    <div class="container pt-0">
-      <div class="text-center">
-        <h1 id="download">Download VidSitu</h1>
-        <p>Detailed instructions for downloading VidSitu are provided on the accompanying Github repo. This repo
-          provides: </p>
-        <div id="download_cards">
+    <div class="container py-0">
+      <div class='text-center'>
+        <h1>Leaderboard</h1>
+        <div class="py-3">
         </div>
-        <a href="#download" class="btn btn-primary btn-lg iconbox">
-          <img src="/open-iconic-master/svg/data-transfer-download.svg" class='icona'>Download VidSitu</a>
-        <hr>
-
       </div>
-
+      <hr>
     </div>
 
-    <div class="container pt-0">
-      <div class="text-center">
-        <h1 id="code">Code</h1>
-        <p>All code is available on Github. We provide code for:</p>
-        <div id="code_cards">
-        </div>
-        <a href="#code" class='btn btn-primary btn-lg iconbox'>
-          <img src='/open-iconic-master/svg/code.svg' class='icona'>Code</a>
-        <hr>
-
-      </div>
-
-    </div>
 
     <div class="container pt-0">
       <div class="text-center">
