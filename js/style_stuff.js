@@ -185,6 +185,12 @@ function init_task_cards(tag_id) {
 
 function init_download_cards(tag_id) {
     let card_dict = [
+      {
+          'place_id': 0,
+          'card_title': '',
+          'card_text': '',
+          'card_img': '/assets/icons2/blank.png',
+      },
         {
             'place_id': 1,
             'card_title': 'YouTube Video Ids',
@@ -202,6 +208,12 @@ function init_download_cards(tag_id) {
             'card_title': 'Video Features',
             'card_text': 'Video features extracted using pretrained I3D and SlowFast models',
             'card_img': '/assets/icons2/model_weights.png',
+        },
+        {
+            'place_id': 4,
+            'card_title': '',
+            'card_text': '',
+            'card_img': '/assets/icons2/blank.png',
         },
     ]
     document.getElementById(tag_id).innerHTML = init_cards_text(tag_id, card_dict, with_modal = false, with_card_text = true, with_modal_img = true, resize_img = false)
@@ -243,6 +255,12 @@ function init_team_members(tag_id) {
 function init_code_cards(tag_id) {
     let card_dict = [
         {
+            'place_id': 0,
+            'card_title': '',
+            'card_text': '',
+            'card_img': '/assets/icons2/blank.png',
+        },
+        {
             'place_id': 1,
             'card_title': 'Data Setup',
             'card_text': 'Download Scripts and Data Loaders',
@@ -259,7 +277,13 @@ function init_code_cards(tag_id) {
             'card_title': 'Evaluation',
             'card_text': 'Evaluation scripts and leaderboard instructions',
             'card_img': '/assets/icons2/leaderboard.png',
-        }
+        },
+        {
+            'place_id': 4,
+            'card_title': '',
+            'card_text': '',
+            'card_img': '/assets/icons2/blank.png',
+        },
     ]
     document.getElementById(tag_id).innerHTML = init_cards_text(tag_id, card_dict, with_modal = false, with_card_text = true, with_modal_img = true, resize_img = false)
 
