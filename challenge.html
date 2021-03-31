@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>VidSitu Dataset: Situation Recognition in Videos</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@allenai/varnish@2.0.16/dist/shellac.min.css">
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- <link href="css/heroic-features.css" rel="stylesheet"> -->
+  <!-- Custom styles for this template -->
+  <!-- <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet"> -->
+  <link rel="icon" href="https://allenai.org/favicon.ico">
+  <script src="./js/style_stuff.js"></script>
+  <style>
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .icon {
+      fill: 'white';
+    }
+
+    .icona {
+      /* fill: white; */
+      height: 25px;
+      padding: 4px;
+    }
+
+    .card {
+      border: 0px;
+    }
+
+    .card-text {
+      font-size: small;
+    }
+
+    .jumbotron a[href],
+    #paper_img a[href],
+    #read_paper a[href],
+    a[href].iconbox {
+      color: white
+    }
+
+    #main_bg_img {
+      background-image: radial-gradient(circle, rgba(8, 8, 8, 0.6), rgba(45, 45, 45, 0.9)),
+        url('/assets/mosaic_vidsitu.jpg');
+        /* background-image: radial-gradient(#000000, #9198e5), url('/assets/mosaic_vidsitu.jpg'); */
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+      color: white;
+      padding: 10px;
+
+    }
+
+    #paper_img {
+      position: relative;
+    }
+
+    .bibtex {
+      display: block;
+      padding: 9.5px;
+      margin: 0 0 10px;
+      font-size: 13px;
+      line-height: 1.42857143;
+      word-break: break-all;
+      word-wrap: break-word;
+      color: #333;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .card-img-top2 {
+      width: 50%;
+      transform: translate(50%, 0%);
+    }
+
+    .card-img-top-resize {
+      width: 100%;
+      height: 15vh;
+      object-fit: cover;
+    }
+
+    .img_cont {
+      position: relative;
+    }
+
+    .cropimg {
+      position: relative;
+      top: -60px;
+      clip-path: polygon(0 7%, 100% 7%, 100% 100%, 0% 100%);
+    }
+
+    h1 {
+      padding-top: 56px;
+    }
+
+    #authors .card-text {
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #333355;
+      border-color: #333355;
+    }
+
+    .btn-primary:hover {
+      color: #fff;
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <!-- <header id='myHeader'>
+    <div class="banner">
+      <div class="content">
+        <a href="https://allenai.org">
+          <img src="https://cdn.jsdelivr.net/npm/@allenai/varnish@2.0.16/dist/ai2.svg" alt="Allen Institute for AI">
+        </a>
+      </div>
+    </div>
+  </header>
+  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id='main_navbar'>
+    <!-- <div class="navbar-brand"><a href="index.html"><img src="/assets/VideoSituations.svg"></a></div> -->
+
+    <div class="container">
+      <a href="https://allenai.org">
+        <img src="https://cdn.jsdelivr.net/npm/@allenai/varnish@2.0.16/dist/ai2.svg" alt="Allen Institute for AI">
+      </a>
+      <!-- <a class="navbar-brand" href="#">VidSitu</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index.html#">VidSitu
+              <!-- <span class="sr-only">(current)</span> -->
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- Add Arxiv Link -->
+            <a class="nav-link" href="/index.html#paper">Paper</a>
+          </li>
+          <li class="nav-item">
+            <!-- Download Instructions -->
+            <a class="nav-link" href="/index.html#download">Download</a>
+          </li>
+          <li class="nav-item">
+            <!-- Github Link -->
+            <a class="nav-link" href="/index.html#code">Code</a>
+          </li>
+          <li class="nav-item">
+            <!-- Exploration Link -->
+            <a class="nav-link" href="/challenge.html">Challenge</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class='clearer'></div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container-fluid">
+    <!-- <img src='assets/mosaic_vidsitu.jpg'> -->
+    <!-- Jumbotron Header -->
+    <!-- <div class="jumbotron text-center" style='background-image: url("/assets/mosaic_vidsitu.jpg");'> -->
+    <div class="jumbotron text-center" id='main_bg_img'>
+
+      <div class='container pt-5'>
+        <!-- <img src='/assets/VideoSituations.svg' class='img-fluid' style='width: 200px;'> -->
+        <!-- <img src='/assets/tmp_pics/VSitu.png' class='img-fluid'> -->
+        <br>
+        <span style="font-size: 50px;">Video Semantic Role Labeling Challenge </span><br>
+        <span style='font-size: 25px;'><br>Part of the ActivityNet Challenges</span>
+        <span style='font-size: 25px;'><br>CVPR 2021</span>
+
+      </div>
+      <!-- <div class='container'>
+        <img src='/assets/VideoSituations.svg' class='img-fluid' style='width: 200px;'>
+      </div> -->
+
+      <!-- <h1 class=" display-3" style=' color:white'>VidSitu</h1> -->
+      <!-- <a href="#download" class="btn btn-primary btn-lg iconbox">
+        <img src="/open-iconic-master/svg/data-transfer-download.svg" class='icona'>Download</a>
+      <a href="#paper1" class="btn btn-primary btn-lg iconbox">
+        <img src='/open-iconic-master/svg/file.svg' class="icona">Paper</a>
+      <a href="#bibtex" class="btn btn-primary btn-lg iconbox">
+        <img src='/open-iconic-master/svg/book.svg' class='icona'>BibTex</a>
+      <a href="#code" class='btn btn-primary btn-lg iconbox'>
+        <img src='/open-iconic-master/svg/code.svg' class='icona'>Code</a> -->
+
+    </div>
+
+    <!-- Page Features -->
+    <!-- <div class="row text-center"> -->
+
+    <div class="container py-0">
+      <div class='text-center'>
+        <h1>Overview</h1>
+        <div class="py-3">
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <div class="container py-0">
+      <div class='text-center'>
+        <h1>Data</h1>
+        <div class="py-3">
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <div class="container py-0">
+      <div class='text-center'>
+        <h1>Submission</h1>
+        <div class="py-3">
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <div class="container py-0">
+      <div class='text-center'>
+        <h1>Schedule</h1>
+        <div class="py-3">
+        </div>
+      </div>
+      <hr>
+    </div>
+
+    <div class="container py-0">
+      <div class='text-center'>
+        <h1>Leaderboard</h1>
+        <div class="py-3">
+        </div>
+      </div>
+      <hr>
+    </div>
+
+
+    <div class="container pt-0">
+      <div class="text-center">
+        <h1 id="contact">Contact</h1>
+        <br>
+        <p>Please reach out to Arka Sadhu (asadhu@usc.edu) for any queries.</p>
+      </div>
+      <hr>
+    </div>
+
+
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="content">
+      <div class="text-center">
+      <a href="https://allenai.org">
+        © The Allen Institute for Artificial Intelligence
+      </a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="https://allenai.org/privacy-policy.html">
+        Privacy Policy
+      </a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="https://allenai.org/terms.html">
+        Terms of Use
+      </a>
+    </div>
+  </div>
+  </footer>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/style_stuff.js"></script>
+
+  <script>
+    header_fixer()
+    // correct_scroll()
+    init_ds_cards('ds_cards')
+    init_task_cards('task_cards')
+    init_download_cards('download_cards')
+    init_team_members('authors')
+    init_code_cards('code_cards')
+  </script>
+
+
+</body>
+
+</html>
