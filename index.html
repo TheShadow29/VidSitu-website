@@ -11,13 +11,20 @@
   <title>VidSitu Dataset: Situation Recognition in Videos</title>
 
   <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@allenai/varnish@2.0.16/dist/shellac.min.css">
+
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- <link href="css/heroic-features.css" rel="stylesheet"> -->
   <!-- Custom styles for this template -->
-  <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
-  <link href="css/heroic-features.css" rel="stylesheet">
-
+  <!-- <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet"> -->
+  <link rel="icon" href="https://allenai.org/favicon.ico">
+  <script src="./js/style_stuff.js"></script>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     .icon {
       fill: 'white';
     }
@@ -35,15 +42,91 @@
     .card-text {
       font-size: small;
     }
+
+    .jumbotron a[href],
+    #paper_img a[href],
+    #read_paper a[href],
+    a[href].iconbox {
+      color: white
+    }
+
+    #main_bg_img {
+      background-image: radial-gradient(rgba(30, 30, 30, 0.52), rgba(5, 5, 5, 0.73)),
+        url('/assets/mosaic_vidsitu.jpg');
+      width: 100%;
+      height: 400px;
+      background-size: cover;
+      color: white;
+      padding: 20px;
+
+    }
+
+    #paper_img {
+      position: relative;
+    }
+
+    .bibtex {
+      display: block;
+      padding: 9.5px;
+      margin: 0 0 10px;
+      font-size: 13px;
+      line-height: 1.42857143;
+      word-break: break-all;
+      word-wrap: break-word;
+      color: #333;
+      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .card-img-top2 {
+      width: 50%;
+      transform: translate(50%, 0%);
+    }
+
+    .card-img-top-resize {
+      width: 100%;
+      height: 15vh;
+      object-fit: cover;
+    }
+
+    .img_cont {
+      position: relative;
+    }
+
+    .cropimg {
+      position: relative;
+      top: -60px;
+      clip-path: polygon(0 7%, 100% 7%, 100% 100%, 0% 100%);
+    }
+
+    h1 {
+      padding-top: 56px;
+    }
+
+    #authors .card-text {
+      font-size: 16px;
+    }
   </style>
+
 </head>
 
 <body>
-
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <header id='myHeader'>
+    <div class="banner">
+      <div class="content">
+        <a href="https://allenai.org">
+          <img src="https://cdn.jsdelivr.net/npm/@allenai/varnish@2.0.16/dist/ai2.svg" alt="Allen Institute for AI">
+        </a>
+      </div>
+    </div>
+  </header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id='main_navbar'>
+    <!-- <div class="navbar-brand"><a href="index.html"><img src="/assets/VideoSituations.svg"></a></div> -->
+
     <div class="container">
-      <!-- <a class="navbar-brand" href="#">VidSitu Dataset</a> -->
+      <a class="navbar-brand" href="#">VidSitu Dataset</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -57,25 +140,26 @@
           </li>
           <li class="nav-item">
             <!-- Add Arxiv Link -->
-            <a class="nav-link" href="#">Paper</a>
+            <a class="nav-link" href="#paper1">Paper</a>
           </li>
           <li class="nav-item">
             <!-- Download Instructions -->
-            <a class="nav-link" href="#">Download</a>
+            <a class="nav-link" href="#download">Download</a>
           </li>
           <li class="nav-item">
             <!-- Github Link -->
-            <a class="nav-link" href="#">Code</a>
+            <a class="nav-link" href="#code">Code</a>
           </li>
           <li class="nav-item">
             <!-- Exploration Link -->
-            <a class="nav-link" href="#">Explore</a>
+            <a class="nav-link" href="/explorer.html">Explore</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
           </li>
         </ul>
       </div>
+      <div class='clearer'></div>
     </div>
   </nav>
 
@@ -83,94 +167,150 @@
   <div class="container-fluid">
     <!-- <img src='assets/mosaic_vidsitu.jpg'> -->
     <!-- Jumbotron Header -->
-    <header class="jumbotron text-center" style='background-image: url("/assets/mosaic_vidsitu.jpg");'>
-      <div>
-        <img src='/assets/tmp_pics/VSitu.png'>
-      </div>
-      <!-- <h1 class="display-3" style='color:white'>VidSitu</h1> -->
-      <!-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt
-        possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam
-        repellat.</p> -->
-      <a href="#" class="btn btn-primary btn-lg">
-        <img src="/open-iconic-master/svg/data-transfer-download.svg" class='icona'>Download</a>
-      <a href="#" class="btn btn-primary btn-lg">
-        <img src='/open-iconic-master/svg/file.svg' class="icona">Paper</a>
-      <a href="#" class="btn btn-primary btn-lg">
-        <img src='/open-iconic-master/svg/book.svg' class='icona'>BibTex</a>
-      <a href="#" class='btn btn-primary btn-lg'>
-        <img src='/open-iconic-master/svg/code.svg' class='icona'>Code</a>
+    <!-- <div class="jumbotron text-center" style='background-image: url("/assets/mosaic_vidsitu.jpg");'> -->
+    <div class="jumbotron text-center" id='main_bg_img'>
 
-    </header>
+      <div class='container pt-5'>
+        <!-- <img src='/assets/VideoSituations.svg' class='img-fluid' style='width: 200px;'> -->
+        <!-- <img src='/assets/tmp_pics/VSitu.png' class='img-fluid'> -->
+        <span style="font-size: 100px;">VidSitu
+        </span>
+        <span style='font-size: 25px;'><br>Towards understanding situations in videos <br><br></span>
+
+      </div>
+      <!-- <div class='container'>
+        <img src='/assets/VideoSituations.svg' class='img-fluid' style='width: 200px;'>
+      </div> -->
+
+      <!-- <h1 class=" display-3" style=' color:white'>VidSitu</h1> -->
+      <!-- <a href="#download" class="btn btn-primary btn-lg iconbox">
+        <img src="/open-iconic-master/svg/data-transfer-download.svg" class='icona'>Download</a>
+      <a href="#paper1" class="btn btn-primary btn-lg iconbox">
+        <img src='/open-iconic-master/svg/file.svg' class="icona">Paper</a>
+      <a href="#bibtex" class="btn btn-primary btn-lg iconbox">
+        <img src='/open-iconic-master/svg/book.svg' class='icona'>BibTex</a>
+      <a href="#code" class='btn btn-primary btn-lg iconbox'>
+        <img src='/open-iconic-master/svg/code.svg' class='icona'>Code</a> -->
+
+    </div>
 
     <!-- Page Features -->
     <!-- <div class="row text-center"> -->
-    <div class="container">
+    <div class="container py-3">
       <div class='text-center'>
         <h1 id="about">About</h1>
         <p>
-          VidSitu is a large-scale dataset covering a diverse range of videos.
-          Each video is complex and has rich annotations.
+          VidSitu is a large-scale dataset containing diverse 10-second videos from movies depicting complex
+          situations
+          (a collection of related events). Events in the video are richly annotated at 2-second intervals with verbs,
+          semantic-roles, entity co-references, and event relations.
+
         </p>
+        <img src='/assets/intro_fig_v7-min-1.png' class="img-fluid" style="width: 75%;">
+
       </div>
-      <!-- </div> -->
-      <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col">
-          <div class="card h-100">
-            <img src="assets/tmp_pics/scale.png" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Large-Scale</h5>
-              <p class="card-text">3K Movies, 29K 10-second Movie Clips, 145K Events</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="assets/tmp_pics/Diversity.png" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Diverse Videos</h5>
-              <p class="card-text">Videos in VidSitu are diverse. 224 Verbs appear in at least 100 Events. 336 Distinct
-                Nouns appear in at least 100
-                Videos</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="assets/tmp_pics/Complexity.png" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Complex Videos</h5>
-              <p class="card-text">Videos in VidSitu are complex. More than 80% of the videos have at least 4 unique
-                verbs and 70% of the videos have at least 6 unique entities. </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100">
-            <img src="assets/tmp_pics/Rich.png" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title">Rich Annotations</h5>
-              <p class="card-text">Each Video in VidSitu is annotated with rich structured representations of events
-                that includes verbs, semantic role labels, entitycoreferences, and event relations. </p>
-            </div>
-          </div>
+      <hr>
+      <div class="container text-center py-3">
+      </div>
+      <div class='text-center py-3'>
+        <h1 id="ds_stats">Dataset Statistics</h1>
+        <!-- </div> -->
+        <div id="ds_cards">
         </div>
       </div>
+      <hr>
 
     </div>
+
+
+    <div class='container py-3'>
+      <div class='text-center'>
+        <h1 id="tasks">VidSRL Task</h1>
+        <p>
+          Annotations in VidSitu support the Video Semantic Role Labelin (VidSRL) task which consists of 3 subtasks.
+        <div id="task_cards">
+        </div>
+        </p>
+      </div>
+      <!-- <div class="container">
+        <img src='/assets/intro_fig_v7-min-1.png' class="img-fluid">
+      </div> -->
+      <hr>
+
+    </div>
+
+    <div class='container py-3' id="paper1">
+      <div class='text-center'>
+        <h1 id="paper" class='text-center'>Paper</h1>
+        <p float="left" id="paper_img">
+          <!-- <img src="/assets/VidSitu_paper_png/VidSitu_Arka-01.png" width="100" />
+          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-02.png" width="100" />
+          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-03.png" width="100" />
+          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-04.png" width="100" />
+          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-05.png" width="100" />
+          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-06.png" width="100" />
+          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-07.png" width="100" />
+          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-08.png" width="100" /> -->
+          <img src='/assets/VidSitu_paper_png/VidSitu_composite_paper.png'>
+        </p>
+      </div>
+      <div class='py-3 text-center' id='read_paper'>
+        <a href="https://arxiv.org/abs/2003.10606" class="btn btn-primary iconbox">
+          Read the Paper</a>
+      </div>
+
+      <pre class='bibtex' id='bibtex'><code>@InProceedings{Sadhu_2021_CVPR,
+          author = {Sadhu, Arka and Gupta, Tanmay and Yatskar, Mark and Nevatia, Ram and Kembhavi, Anniruddha},
+          title = {Visual Semantic Role Labeling for Video Understanding},
+          booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+          month = {June},
+          year = {2021}
+}</code></pre>
+      <hr>
+
+      <h1 id="auths" class='text-center py-3'>Authors</h1>
+      <div id="authors">
+      </div>
+      <hr>
+
+    </div>
+
     <!-- /.row -->
     <div class="container pt-5">
       <div class="text-center">
         <h1 id="download">Download VidSitu</h1>
-        <p>Please find detailed instructions for downloading VidSitu on Github </p>
+        <a href="#download" class="btn btn-primary btn-lg iconbox">
+          <img src="/open-iconic-master/svg/data-transfer-download.svg" class='icona'>Download VidSitu</a>
+
+        <p>Please find detailed instructions for downloading VidSitu on Github. We provide: </p>
+        <div id="download_cards">
+        </div>
+        <hr>
+
       </div>
 
     </div>
+
+    <div class="container pt-5">
+      <div class="text-center">
+        <h1 id="code">Code</h1>
+        <a href="#code" class='btn btn-primary btn-lg iconbox'>
+          <img src='/open-iconic-master/svg/code.svg' class='icona'>Code</a>
+        <p>All code is available on Github. We provide code for:</p>
+        <div id="code_cards">
+        </div>
+        <hr>
+
+      </div>
+
+    </div>
+
     <div class="container pt-5">
       <div class="text-center">
         <h1 id="contact">Contact</h1>
         <p>Please reach out to Arka Sadhu (asadhu@usc.edu) for any queries.</p>
       </div>
-
+      <hr>
     </div>
 
 
@@ -179,18 +319,38 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; PRIOR AI2 2021, Design by <a
-          href="https://startbootstrap.com/template/heroic-features">Bootstrap</a> Adapted by <a
-          href=' https://theshadow29.github.io/'>Arka Sadhu</a></p>
+  <footer>
+    <div class="content">
+      <a href="https://allenai.org">
+        © The Allen Institute for Artificial Intelligence
+      </a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="https://allenai.org/privacy-policy.html">
+        Privacy Policy
+      </a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="https://allenai.org/terms.html">
+        Terms of Use
+      </a>
     </div>
-    <!-- /.container -->
   </footer>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/style_stuff.js"></script>
+
+  <script>
+    header_fixer()
+    // correct_scroll()
+    init_ds_cards('ds_cards')
+    init_task_cards('task_cards')
+    init_download_cards('download_cards')
+    init_team_members('authors')
+    init_code_cards('code_cards')
+  </script>
+
 
 </body>
 

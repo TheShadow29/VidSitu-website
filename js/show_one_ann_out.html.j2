@@ -1,0 +1,264 @@
+
+{% block content %}
+<script src="https://ai2-prior-vidsitu.s3-us-west-2.amazonaws.com/turk_code/static/js_utils.js"></script>
+<link rel="stylesheet" href="https://ai2-prior-vidsitu.s3-us-west-2.amazonaws.com/turk_code/static/vann_style.css">
+<script src="https://ai2-prior-vidsitu.s3-us-west-2.amazonaws.com/turk_code/static/yt_load.js"></script>
+{# <script src="https://ai2-prior-vidsitu.s3-us-west-2.amazonaws.com/turk_code/static/propbank_v3_med.js"></script> #}
+
+{% set pbank_version = vlist_data[0]['pbank_version'] %}
+
+{% if pbank_version == 'v3' %}
+<script src="https://ai2-prior-vidsitu.s3-us-west-2.amazonaws.com/turk_code/static/propbank_v3_med.js"></script>
+<script>console.log('Using Version 3')</script>
+{% elif 'v4' in pbank_version %}
+<script src="https://ai2-prior-vidsitu.s3-us-west-2.amazonaws.com/turk_code/static/propbank_{{ pbank_version }}_minor_fix_med.js"></script>
+<script>console.log('Using Version {{ pbank_version|tojson }}')</script>
+{% else %}
+{{ 0 / 0}}
+{% endif %}
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+<!--Font Awesome webfont for appendGrid button icons-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>
+
+
+{# <script src="/home/arkas/Ark_Files/Video-GSR/turk_code/static/propbank_verbs_old.js"></script> #}
+
+{# <style> {{ css_data }} </style> #}
+
+{# <script src="https://assets.crowd.aws/crowd-html-elements.js"></script> #}
+{# <script src="jquery-3.3.1.slim.min.js"></script>
+<script src="popper.min.js"></script>
+<script src="bootstrap.min.js"></script> #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/floatthead/2.1.1/jquery.floatThead.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.appendgrid@2/dist/AppendGrid.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<script>
+    var curr_set_time_outs = []
+    var delta = 2
+    var pdone = true
+    def_player_cfg_vars.controls = 0
+    var vlist = {{ vlist_data| tojson }};
+    var vlst_dct = Object.assign({}, ...vlist.map((x) => ({ [x.uid]: x })));
+    loadJS('https://www.youtube.com/iframe_api',onYouTubeIframeAPIReady,'')
+    var vlst_dct_num_vbs = Object.assign({}, ...Object.keys(vlst_dct).map((x) => ({ [x]: 1})));
+    var vlst_dct_row_ix = Object.assign({}, ...Object.keys(vlst_dct).map((x) => ({ [x]: 1})));
+    var vlst_dct_row_ix_to_num_vb = {}
+    const use_new_evrel = false;
+    var curr_row_uix = -1
+    const argm_loc = "Scene of the Event"
+
+    //const nper = vlist[0]['tracks'].length
+//    const npct = 45 / nper
+//    $('.im1').width(`${npct}%`)
+
+    var lst_dct = {
+        //'person': [...Array(nper).keys()].map(function(i){ return `P${i}`}),
+        'person': [],
+        'event': [],
+        'refexp': []
+    }
+    var evev_reln_lst = ['','Cause', 'Enabled By', 'Motivated By', 'Effect', 'Subpart', 'No Relation']
+    const max_fields = 10
+
+</script>
+<div class="w3-container">
+
+<h3> <a target="blank" href="https://ai2-prior-vidsitu.s3-us-west-2.amazonaws.com/turk_code/static/vann_instr.html"
+style="color:blue">
+        See Detailed Instructions Here
+        </a>
+</h3>
+</div>
+{% for v1 in vlist_data %}
+    <div style="text-align:center;">
+        <div>
+            <div id="{{ v1.uid }}_main_vid"></div>
+            <div>
+                <button type="button" id="{{ v1.uid }}_btn" onclick="onButtonPlayerStateChange(this)">
+                    Replay
+                </button>
+            </div>
+        </div>
+        <div class="vidimg1"></div>
+    </div>
+
+    <div id="{{ v1.uid }}_vid_stff">
+        <div class="lineLeft">
+            {# <div id="{{ v1.uid }}" class="vid1"></div> #}
+            <div id="{{ v1.uid }}" class="vid1"></div>
+        </div>
+        <div class="lineRight">
+            <div id="{{ v1.uid }}_SRL" class="SRL">
+            </div>
+            <br/>
+            <span id="any_error_msg"></span>
+        </div>
+
+        <div class="vidimg1"></div>
+    </div>
+
+    <div class="vidimg1"></div>
+
+    <br/><br/><br/><br/><br/>
+
+
+
+    <script type="text/javascript">
+
+    var tag_id = "{{ v1.uid }}_vb_drop_1";
+    var vid_id = "{{v1.uid}}"
+    var loop_idx = "{{ loop.index0 }}"
+    st = "{{ v1.start }}"
+    en = "{{ v1.end }}"
+    num_vb = vlst_dct_num_vbs[vid_id]
+    addTable_v3(vid_id, ntstep=5)
+    $('input').attr('disabled', true)
+    $('select').attr('disabled', true)
+    function add_roles(verb_elm, vid_id, ro) {
+        let role_tag_prefix = verb_elm.id.split('_Verb_')[0]
+        let verb_span_id = role_tag_prefix + '_verb_eg_' + ro
+        if ($(`#${verb_span_id}`).length === 0) {
+            $(`#${verb_elm.id}`).after(`<div class="verbeg" id=${verb_span_id} style="height:auto">
+            </div>`)
+        }
+        let roles_td_id = $(`#${verb_elm.id}`).closest('td').next('td')
+
+        let verb_sel = verb_elm.value;
+        if (!(verb_sel in verb_list_args.verb_dct)){
+            console.log(verb_sel)
+            let possible_verb_list = get_chosen_vb(verb_sel)
+            if (possible_verb_list.length == 0){
+                verb_error[ro].isError = true
+                verb_error[ro].error_msg = `Verb used for Ev${ro} [${verb_sel}] is not present in Drop-Down`
+                return
+            } else {
+                verb_error[ro].isError = true
+                verb_error[ro].error_msg = `Verb used for Ev${ro} [${verb_sel}] was changed from the original [${possible_verb_list[0]}] present in Drop-Down`
+                verb_sel = possible_verb_list[0]
+            }
+        }
+
+        let verb_data_sel = verb_list_args.verb_dct[verb_sel];
+        let verb_abs = verb_data_sel.abstract
+        let verb_abs_inp = '<u>Example Usage for ' + verb_sel.split('(', 1)[0].trim() + ':</u>'
+        for (abs of verb_abs) {
+            verb_abs_inp += '<br>'
+            verb_abs_inp += abs;
+        }
+        $(`#${verb_span_id}`).html(`<span class="noselect"> ${verb_abs_inp} </span>`)
+
+
+        let roles = verb_data_sel['order'];
+        if (roles[roles.length - 1] != argm_loc) {
+            let to_add_loc = true
+            for (r of roles) {
+                if (r.includes('location')) {
+                    to_add_loc = false
+                }
+            }
+            if (to_add_loc) {
+                roles.push(argm_loc)
+            }
+        }
+        let role_html = ''
+        let role_id_lst = []
+        for ([role_ix, role] of roles.entries()) {
+            let role_id = role_tag_prefix + '_Roles_' + ro + '_RoleNum_' + role_ix
+            role_id_lst.push(role_id)
+            role_html += `
+            <div class="role_container">
+                <input disabled type="text" class="inputText form-control form-control-sm"
+                id=${role_id} name=${role_id} value="" onkeyup="this.setAttribute('value', this.value);"/>
+                <span class="floating-label">${role}</span>
+            </div>
+            `
+        }
+        roles_td_id.attr('id', role_tag_prefix + '_td_RolesRow_' + ro)
+        roles_td_id.attr('data-nr', roles.length)
+        roles_td_id.html(role_html)
+        for (roid of role_id_lst){
+            if (roid in vlst_dct[vid_id]){
+                let val1 = vlst_dct[vid_id][roid]
+                $(`#${roid}`).val(val1)
+            }
+        }
+
+    }
+    function get_chosen_vb(term_inp) {
+
+        // var result = $.ui.autocomplete.filter(verb_list_args.verb_list, request.term);
+        // response(result);
+
+        var term = $.ui.autocomplete.escapeRegex(term_inp)
+            , startsWithMatcher = new RegExp("^" + term, "i")
+            , startsWith = $.grep(verb_list_args.verb_list, function (value) {
+                return startsWithMatcher.test(value.label || value.value || value);
+            })
+            , containsMatcher = new RegExp(term, "i")
+            , contains = $.grep(verb_list_args.verb_list, function (value) {
+                return $.inArray(value, startsWith) < 0 &&
+                    containsMatcher.test(value.label || value.value || value);
+            });
+
+        return startsWith.concat(contains)
+
+    }
+
+    function check_task_type(){
+        if ('task_type' in vlst_dct[vid_id]){
+            return vlst_dct[vid_id]['task_type']
+        } else {
+            let ro = 1
+            let verb_tag_id = vlst_dct[vid_id].table_grid.getCellCtrlByUniqueIndex('Verb',ro)
+            if (verb_tag_id.id in vlst_dct[vid_id]){
+                return 'train_eval_vb'
+            } else if ('vb_to_use' in vlst_dct[vid_id]){
+                return 'eval_arg'
+            } else {
+                return 'ERROR'
+            }
+        }
+    }
+
+    let row_order = vlst_dct[vid_id].table_grid.getRowOrder()
+    var verb_error = Object.assign({}, ...row_order.map((x) => ({ [x]: {isError: false, error_msg: ''} })));
+    var task_type = check_task_type()
+    for (ro of row_order){
+        let verb_tag_id = vlst_dct[vid_id].table_grid.getCellCtrlByUniqueIndex('Verb',ro)
+        if (task_type == 'train_eval_vb' || task_type == 'eval_vb' || task_type == 'train') {
+            if (verb_tag_id.id in vlst_dct[vid_id]){
+                verb_tag_id.value = vlst_dct[vid_id][verb_tag_id.id]
+                add_roles(verb_tag_id, vid_id, ro)
+            }
+        } else if (task_type == 'eval_arg') {
+            if ('vb_to_use' in vlst_dct[vid_id]) {
+                verb_tag_id.value = vlst_dct[vid_id]['vb_to_use'][`Ev${ro}`]
+                add_roles(verb_tag_id, vid_id, ro)
+            }
+        }
+        let evrel_tag_id = vlst_dct[vid_id].table_grid.getCellCtrlByUniqueIndex('EvRelSel',ro)
+        if (evrel_tag_id.id in vlst_dct[vid_id]){
+            evrel_tag_id.value = vlst_dct[vid_id][evrel_tag_id.id]
+        }
+    }
+    $('input').attr('disabled', true)
+    let verb_error_txt = ''
+    for (ro of row_order){
+        if (verb_error[ro].isError) {
+            verb_error_txt += '<br>' + verb_error[ro].error_msg
+        }
+    }
+    $('#any_error_msg').html(verb_error_txt)
+    </script>
+    </dt>
+
+{% endfor %}
+
+
+{% endblock %}
