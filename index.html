@@ -21,6 +21,7 @@
   <link rel="icon" href="https://allenai.org/favicon.ico">
   <script src="./js/style_stuff.js"></script>
   <style>
+
     html {
       scroll-behavior: smooth;
     }
@@ -107,6 +108,19 @@
     #authors .card-text {
       font-size: 16px;
     }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #333355;
+      border-color: #333355;
+    }
+
+    .btn-primary:hover {
+      color: #fff;
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
   </style>
 
 </head>
@@ -198,66 +212,61 @@
     <!-- <div class="row text-center"> -->
     <div class="container py-3">
       <div class='text-center'>
-        <h1 id="about">About</h1>
+        <!-- <h1 id="about">About</h1> -->
         <p>
           VidSitu is a large-scale dataset containing diverse 10-second videos from movies depicting complex
           situations
           (a collection of related events). Events in the video are richly annotated at 2-second intervals with verbs,
           semantic-roles, entity co-references, and event relations.
-
         </p>
+        <br>
         <img src='/assets/intro_fig_v7-min-1.png' class="img-fluid" style="width: 75%;">
-
       </div>
       <hr>
-      <div class="container text-center py-3">
-      </div>
-      <div class='text-center py-3'>
+    </div>
+
+    <div class="container py-0">
+      <div class='text-center'>
         <h1 id="ds_stats">Dataset Statistics</h1>
-        <!-- </div> -->
+        <div class="py-3">
+        </div>
         <div id="ds_cards">
         </div>
       </div>
       <hr>
-
     </div>
 
-
-    <div class='container py-3'>
+    <div class='container py-0'>
       <div class='text-center'>
         <h1 id="tasks">VidSRL Task</h1>
         <p>
-          Annotations in VidSitu support the Video Semantic Role Labelin (VidSRL) task which consists of 3 subtasks.
+        Annotations in VidSitu support the Video Semantic Role Labelin (VidSRL) task which consists of 3 subtasks.
+        </p>
         <div id="task_cards">
         </div>
-        </p>
+        <hr>
       </div>
-      <!-- <div class="container">
-        <img src='/assets/intro_fig_v7-min-1.png' class="img-fluid">
-      </div> -->
-      <hr>
 
     </div>
 
     <div class='container py-3' id="paper1">
       <div class='text-center'>
         <h1 id="paper" class='text-center'>Paper</h1>
+        <div class="py-3">
+        </div>
         <p float="left" id="paper_img">
-          <!-- <img src="/assets/VidSitu_paper_png/VidSitu_Arka-01.png" width="100" />
-          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-02.png" width="100" />
-          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-03.png" width="100" />
-          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-04.png" width="100" />
-          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-05.png" width="100" />
-          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-06.png" width="100" />
-          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-07.png" width="100" />
-          <img src="/assets/VidSitu_paper_png/VidSitu_Arka-08.png" width="100" /> -->
-          <img src='/assets/VidSitu_paper_png/VidSitu_composite_paper.png'>
+          <img src='/assets/VidSitu_paper_png/VidSitu_composite_paper.png' width="100%">
         </p>
       </div>
       <div class='py-3 text-center' id='read_paper'>
         <a href="https://arxiv.org/abs/2003.10606" class="btn btn-primary iconbox">
           Read the Paper</a>
       </div>
+
+      <div class='text-left'>
+      <p>
+      If you find our work helpful, please cite the following paper:
+      <p>
 
       <pre class='bibtex' id='bibtex'><code>@InProceedings{Sadhu_2021_CVPR,
           author = {Sadhu, Arka and Gupta, Tanmay and Yatskar, Mark and Nevatia, Ram and Kembhavi, Anniruddha},
@@ -266,6 +275,7 @@
           month = {June},
           year = {2021}
 }</code></pre>
+</div>
       <hr>
 
       <h1 id="auths" class='text-center py-3'>Authors</h1>
@@ -276,36 +286,35 @@
     </div>
 
     <!-- /.row -->
-    <div class="container pt-5">
+    <div class="container pt-0">
       <div class="text-center">
         <h1 id="download">Download VidSitu</h1>
-        <a href="#download" class="btn btn-primary btn-lg iconbox">
-          <img src="/open-iconic-master/svg/data-transfer-download.svg" class='icona'>Download VidSitu</a>
-
-        <p>Please find detailed instructions for downloading VidSitu on Github. We provide: </p>
+        <p>Detailed instructions for downloading VidSitu are provided on the accompanying Github repo. This repo provides: </p>
         <div id="download_cards">
         </div>
+        <a href="#download" class="btn btn-primary btn-lg iconbox">
+          <img src="/open-iconic-master/svg/data-transfer-download.svg" class='icona'>Download VidSitu</a>
         <hr>
 
       </div>
 
     </div>
 
-    <div class="container pt-5">
+    <div class="container pt-0">
       <div class="text-center">
         <h1 id="code">Code</h1>
-        <a href="#code" class='btn btn-primary btn-lg iconbox'>
-          <img src='/open-iconic-master/svg/code.svg' class='icona'>Code</a>
         <p>All code is available on Github. We provide code for:</p>
         <div id="code_cards">
         </div>
+        <a href="#code" class='btn btn-primary btn-lg iconbox'>
+          <img src='/open-iconic-master/svg/code.svg' class='icona'>Code</a>
         <hr>
 
       </div>
 
     </div>
 
-    <div class="container pt-5">
+    <div class="container pt-0">
       <div class="text-center">
         <h1 id="contact">Contact</h1>
         <p>Please reach out to Arka Sadhu (asadhu@usc.edu) for any queries.</p>

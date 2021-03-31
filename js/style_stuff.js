@@ -131,7 +131,7 @@ function init_ds_cards(tag_id) {
             'place_id': 4,
             'card_title': 'Rich Annotations',
             'card_text': 'Each Video in VidSitu is annotated with rich structured representations of events that includes verbs, semantic role labels, entitycoreferences, and event relations.',
-            'card_img': 'assets/tmp_pics/Rich.png',
+            'card_img': '/assets/icons2/annotate.png',
             // 'card_popimg': '/assets/modal_imgs/richness_only-min.svg',
             'card_popimg': [
                 {
@@ -160,7 +160,7 @@ function init_task_cards(tag_id) {
             'card_text': 'Given a 2-second clip, predict a verb-sense describing the most salient action.',
             'card_img': '/assets/modal_imgs/verb_pred_model_only-min3.png',
             'card_popimg': '/assets/modal_imgs/verb_pred_model_only-min3.png',
-            'pimg_txt': 'Example'
+            'pimg_txt': 'Verb Example'
         },
         {
             'place_id': 2,
@@ -168,7 +168,7 @@ function init_task_cards(tag_id) {
             'card_text': 'Given a verb sense, generate the semantic roles for each 2-second interval. Entities within and across time-steps should be co-referenced.',
             'card_img': '/assets/modal_imgs/srl_pred_only-min3.png',
             'card_popimg': '/assets/modal_imgs/srl_pred_only-min3.png',
-            'pimg_txt': 'Example'
+            'pimg_txt': 'Role Example'
         },
         {
             'place_id': 3,
@@ -176,7 +176,7 @@ function init_task_cards(tag_id) {
             'card_text': 'Given the verbs and semantic roles for two events, predict how the events are related to each other by classifying among 4 event-relation types.',
             'card_img': '/assets/modal_imgs/evrel_only-min3.png',
             'card_popimg': '/assets/modal_imgs/evrel_only-min3.png',
-            'pimg_txt': 'Example'
+            'pimg_txt': 'Relation Example'
         }
     ]
     document.getElementById(tag_id).innerHTML = init_cards_text(tag_id, card_dict, with_modal = true, with_card_text = true, with_modal_img = false)
