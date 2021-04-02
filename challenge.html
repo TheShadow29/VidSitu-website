@@ -218,58 +218,144 @@
     <!-- <div class="row text-center"> -->
 
     <div class="container py-0">
+      <h1>Overview</h1>
       <div class='text-center'>
-        <h1>Overview</h1>
-        <div class="py-3">
+        <div class="py-3" align="left">
+          <p>
+            Videos often depict complex real-life situations. While the vision community continues to make progress on building blocks like activity recognition, temporal localization, and tracking, the goal of this challenge is to strive for more complete video understanding than can be afforded by action labels and object detection only. Specifically, this challenge evaluates the ability of vision algorithms to understand complex <b>related events</b> in a video. Each event may be described by a <b>verb</b> corresponding to the most salient action in a video segment and its <b>semantic roles</b>. VidSRL involves 3 sub-tasks: (1) predicting a verb-sense describing the most salient action; (2) predicting the semantic roles for a given verb; and (3) predicting event relations given the verbs and semantic roles for two events.
+          </p>
+          <h4>Why not just study video captioning?</h4>
+          <p>
+            While producing accurate and descriptive captions for videos would be a remarkable display of algorithmic video understanding, VidSRL provides a more <b>complete</b> and <b>structured</b> representation of <b>related events</b>, and a more thorough <b>three-part evaluation</b>.
+          </p>
         </div>
       </div>
-      <hr>
     </div>
 
     <div class="container py-0">
+      <h1>Data</h1>
       <div class='text-center'>
-        <h1>Data</h1>
-        <div class="py-3">
+        <div class="py-3" align="left">
+          <p>
+            The challenge is based on the VidSitu dataset which consists of over 80 hours of richly annotated movie-clips. VidSitu has 29.2K 10-second videos annotated with events every 2 seconds. We refer to each 2 second segment as a clip. The data download instructions can be found <a href="https://vidsitu.org/#download">here</a>. The train, validation and test splits are desribed below. Note that the train and validation annotations are available for download where as the test annotations are only available through the online evaluation server. 
+          </p>
+          <table style="width:100%" class="table">
+            <thead>
+              <tr>
+                <th>Split</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Train</td>
+                <td>23626 videos with each of the five 2-second clips within a video is annotated with a verb and corresponding semantic roles</td>
+              </tr>
+              <tr>
+                <td>Validation</td>
+                <td>1326 videos annotated similar to the train set</td>
+              </tr>
+              <tr>
+                <td>Test-Vb</td>
+                <td>1353 videos for evaluating verb-sense prediction. Each clip is annotated with 3 verbs to account for variability in selection of the salient activity</td>
+              </tr>
+              <tr>
+                <td>Test-SRL</td>
+                <td>1598 videos for evaluating semantic role prediction for a chosen verb. Each clip is annotated with 3 sets of semantic roles for the same verb to account for variability in referring expressions.</td>
+              </tr>
+              <tr>
+                <td>Test-ER</td>
+                <td>1317 videos for evaluating event-relation prediction. Each clip is annotated with relation to the central event (the 4-6 second clip). We provide 3 annotations to handle relation ambiguity.</td>
+              </tr>
+            </tbody>
+          </table> 
         </div>
       </div>
-      <hr>
     </div>
 
     <div class="container py-0">
+      <h1>Submission</h1>
       <div class='text-center'>
-        <h1>Submission</h1>
-        <div class="py-3">
+        <div class="py-3" align="left">
+          <p>
+            The VidSRL evaluation has three parts, each with its own leaderboard. For the purpose of the callenge, we will announce winners for each leaderboard. Each leaderboard requires submitting a single .pkl file of predictions for the corresponding test split. Detailed submission instructions, including prediction formats required for evaluation, are available on the respective leaderboards. Below, <b>video</b> refers to a 10-second video segment which consists of the 5 non-overlapping 2-second <b>clips</b> and the <b>central clip</b> refers to the segment spanning the 4-6 second interval within the video. 
+          </p>
+          <table style="width:100%" class="table">
+            <thead>
+              <tr>
+                <th>Evaluation</th>
+                <th>Input</th>
+                <th>Output</th>
+                <th>Test Split</th>
+                <th>Leaderboard</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Verb Prediction</td>
+                <td>Video</td>
+                <td>Verb-sense per clip</td>
+                <td>Test-Vb</td>
+                <td><a href="https://leaderboard.allenai.org/vidsitu-verbs/submissions/public">Link</a></td>
+              </tr>
+              <tr>
+                <td>Semantic Role Prediction</td>
+                <td>Video and verbs for each clip</td>
+                <td>Semantic roles per clip</td>
+                <td>Test-SRL</td>
+                <td><a href="https://leaderboard.allenai.org/vidsitu-semantic-roles/submissions/public">Link</a></td>
+              </tr>
+              <tr>
+                <td>Event-Relation Prediction</td>
+                <td>Video, verbs, and semantic roles for each clip</td>
+                <td>Relation of each clip to the central clip</td>
+                <td>Test-ER</td>
+                <td><a href="https://leaderboard.allenai.org/vidsitu-event-relations/submissions/public">Link</a></td>
+              </tr>
+            </tbody>
+          </table> 
         </div>
       </div>
-      <hr>
     </div>
 
     <div class="container py-0">
+      <h1>Schedule</h1>
       <div class='text-center'>
-        <h1>Schedule</h1>
-        <div class="py-3">
+        <div class="py-3" align="left">
+          <table style="width:100%" class="table">
+            <thead>
+              <tr>
+                <th>When</th>
+                <th>What</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>April 5</td>
+                <td>Evaluation servers and leaderboards online</td>
+              </tr>
+              <tr>
+                <td>June 4</td>
+                <td>Submission deadline for challenge purposes</td>
+              </tr>
+              <tr>
+                <td>June 19-25</td>
+                <td>Winners announced during the ActivityNet Workshop @ CVPR 2021</td>
+              </tr>
+            </tbody>
+          </table> 
         </div>
       </div>
-      <hr>
-    </div>
-
-    <div class="container py-0">
-      <div class='text-center'>
-        <h1>Leaderboard</h1>
-        <div class="py-3">
-        </div>
-      </div>
-      <hr>
     </div>
 
 
     <div class="container pt-0">
+      <h1 id="contact">Contact</h1>
       <div class="text-center">
-        <h1 id="contact">Contact</h1>
-        <br>
-        <p>Please reach out to Arka Sadhu (asadhu@usc.edu) for any queries.</p>
+        <div class="py-3" align="left">
+          <p>Please reach out to Arka Sadhu (asadhu@usc.edu) for any queries.</p>
+        </div>
       </div>
-      <hr>
     </div>
 
 
