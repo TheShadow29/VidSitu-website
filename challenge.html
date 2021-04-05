@@ -216,6 +216,9 @@
 
     <!-- Page Features -->
     <!-- <div class="row text-center"> -->
+    <div class="container py-0" align="center">
+      <img src="assets/vidsitu_subtasks.gif" width="80%">
+    </div>
 
     <div class="container py-0">
       <h1>Overview</h1>
@@ -237,8 +240,13 @@
       <div class='text-center'>
         <div class="py-3" align="left">
           <p>
-            The challenge is based on the VidSitu dataset which consists of over 80 hours of richly annotated movie-clips. VidSitu has 29.2K 10-second videos annotated with events every 2 seconds. We refer to each 2 second segment as a clip. The data download instructions can be found <a href="https://vidsitu.org/#download">here</a>. The train, validation and test splits are desribed below. Note that the train and validation annotations are available for download where as the test annotations are only available through the online evaluation server. 
+            The challenge is based on the VidSitu dataset which consists of over 80 hours of richly annotated movie-clips. VidSitu has 29.2K 10-second videos annotated with events every 2 seconds. We refer to each 2 second segment as a clip. The train, validation and test splits are desribed below. Note that the train and validation annotations are available for download where as the test annotations are only available through the online evaluation server. 
           </p>
+          <div align="center">
+          <a href="https://github.com/TheShadow29/VidSitu/tree/main/data" class="btn btn-primary btn-lg iconbox">Download VidSitu Dataset</a>
+          </div>
+          <br>
+
           <table style="width:100%" class="table">
             <thead>
               <tr>
@@ -283,34 +291,49 @@
           <table style="width:100%" class="table">
             <thead>
               <tr>
-                <th>Evaluation</th>
+                <th>Leaderboard</th>
                 <th>Input</th>
                 <th>Output</th>
                 <th>Test Split</th>
-                <th>Leaderboard</th>
+                <!-- <th>Leaderboard</th> -->
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Verb Prediction</td>
-                <td>Video</td>
-                <td>Verb-sense per clip</td>
-                <td>Test-Vb</td>
-                <td><a href="https://leaderboard.allenai.org/vidsitu-verbs/submissions/public">Link</a></td>
+                <td class="align-middle">
+                  <a href="https://leaderboard.allenai.org/vidsitu-verbs/submissions/public">
+                    <img src="/assets/VidSitu_logos_v2/VidSitVerbs.svg" width="40%" class="img-thumbnail">
+                  </a>
+                </td>
+                <!-- <td class="align-middle">Verb Prediction</td> -->
+                <td class="align-middle">Video</td>
+                <td class="align-middle">Verb-sense per clip</td>
+                <td class="align-middle">Test-Vb</td>
+                <!-- <td class="align-middle"><a href="https://leaderboard.allenai.org/vidsitu-verbs/submissions/public">Link</a></td> -->
               </tr>
               <tr>
-                <td>Semantic Role Prediction</td>
-                <td>Video and verbs for each clip</td>
-                <td>Semantic roles per clip</td>
-                <td>Test-SRL</td>
-                <td><a href="https://leaderboard.allenai.org/vidsitu-semantic-roles/submissions/public">Link</a></td>
+                <td class="align-middle">
+                  <a href="https://leaderboard.allenai.org/vidsitu-semantic-roles/submissions/public">
+                    <img src="/assets/VidSitu_logos_v2/VidSitSemantic.svg" width="40%" class="img-thumbnail">
+                  </a>
+                </td>
+                <!-- <td>Semantic Role Prediction</td> -->
+                <td class="align-middle">Video and verbs for each clip</td>
+                <td class="align-middle">Semantic roles per clip</td>
+                <td class="align-middle">Test-SRL</td>
+                <!-- <td class="align-middle"><a href="https://leaderboard.allenai.org/vidsitu-semantic-roles/submissions/public">Link</a></td> -->
               </tr>
               <tr>
-                <td>Event-Relation Prediction</td>
-                <td>Video, verbs, and semantic roles for each clip</td>
-                <td>Relation of each clip to the central clip</td>
-                <td>Test-ER</td>
-                <td><a href="https://leaderboard.allenai.org/vidsitu-event-relations/submissions/public">Link</a></td>
+                <td class="align-middle">
+                  <a href="https://leaderboard.allenai.org/vidsitu-event-relations/submissions/public">
+                    <img src="/assets/VidSitu_logos_v2/VidSitEvent.svg" width="40%" class="img-thumbnail">
+                  </a>
+                </td>
+                <!-- <td>Event-Relation Prediction</td> -->
+                <td class="align-middle">Video, verbs, and semantic roles for each clip</td>
+                <td class="align-middle">Relation of each clip to the central clip</td>
+                <td class="align-middle">Test-ER</td>
+                <!-- <td class="align-middle"><a href="https://leaderboard.allenai.org/vidsitu-event-relations/submissions/public">Link</a></td> -->
               </tr>
             </tbody>
           </table> 
