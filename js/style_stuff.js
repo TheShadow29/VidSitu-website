@@ -154,43 +154,46 @@ function init_ds_cards(tag_id) {
 
 function init_task_cards(tag_id) {
     let card_dict = [
+
+
         {
             'place_id': 1,
-            'card_title': 'Verb Prediction',
+            'card_title': '',
             'card_text': 'Given a 2-second clip, predict a verb-sense describing the most salient action.',
-            'card_img': '/assets/modal_imgs/verb_pred_model_only-min3.png',
+            'card_img': '/assets/VidSitu_logos_v2/VidSitVerbs.svg',
             'card_popimg': '/assets/modal_imgs/verb_pred_model_only-min3.png',
             'pimg_txt': 'Verb Example'
         },
         {
             'place_id': 2,
-            'card_title': 'Semantic Role Prediction',
+            'card_title': '',
             'card_text': 'Given a verb sense, generate the semantic roles for each 2-second interval. Entities within and across time-steps should be co-referenced.',
-            'card_img': '/assets/modal_imgs/srl_pred_only-min3.png',
+            'card_img': '/assets/VidSitu_logos_v2/VidSitSemantic.svg',
             'card_popimg': '/assets/modal_imgs/srl_pred_only-min3.png',
             'pimg_txt': 'Role Example'
         },
         {
             'place_id': 3,
-            'card_title': 'Event Relation Prediction',
+            'card_title': '',
             'card_text': 'Given the verbs and semantic roles for two events, predict how the events are related to each other by classifying among 4 event-relation types.',
-            'card_img': '/assets/modal_imgs/evrel_only-min3.png',
+            'card_img': '/assets/VidSitu_logos_v2/VidSitEvent.svg',
             'card_popimg': '/assets/modal_imgs/evrel_only-min3.png',
             'pimg_txt': 'Relation Example'
-        }
+        },
+
     ]
-    document.getElementById(tag_id).innerHTML = init_cards_text(tag_id, card_dict, with_modal = true, with_card_text = true, with_modal_img = false)
+    document.getElementById(tag_id).innerHTML = init_cards_text(tag_id, card_dict, with_modal = true, with_card_text = true, with_modal_img = true)
 
 }
 
 function init_download_cards(tag_id) {
     let card_dict = [
-      {
-          'place_id': 0,
-          'card_title': '',
-          'card_text': '',
-          'card_img': '/assets/icons2/blank.png',
-      },
+        {
+            'place_id': 0,
+            'card_title': '',
+            'card_text': '',
+            'card_img': '/assets/icons2/blank.png',
+        },
         {
             'place_id': 1,
             'card_title': 'YouTube Video Ids',
