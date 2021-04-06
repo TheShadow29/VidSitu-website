@@ -11,7 +11,14 @@ function init_cards_text(tag_id, card_dict, with_modal = true, with_card_text = 
             if (resize_img) {
                 modal_img_src = `<img src=${card.card_img} class="card-img-top card-img-top-resize">`
             } else {
-                modal_img_src = `<img src=${card.card_img} class="card-img-top card-img-top2">`
+
+                if ('card_img_link' in card) {
+                    modal_img_src = `<a href=${card.card_img_link} class="new_alink" target="_blank"><img src=${card.card_img} class="card-img-top card-img-top2 img-thumbnail"></a>`
+                    // modal_img_src = `${modal_img_src}`
+                }
+                else {
+                    modal_img_src = `<img src=${card.card_img} class="card-img-top card-img-top2">`
+                }
             }
         }
 
@@ -161,6 +168,7 @@ function init_task_cards(tag_id) {
             'card_title': '',
             'card_text': 'Given a 2-second clip, predict a verb-sense describing the most salient action.',
             'card_img': '/assets/VidSitu_logos_v2/VidSitVerbs.svg',
+            'card_img_link': 'https://leaderboard.allenai.org/vidsitu-verbs/submissions/public',
             'card_popimg': '/assets/modal_imgs/verb_pred_model_only-min3.png',
             'pimg_txt': 'Verb Example'
         },
@@ -169,6 +177,7 @@ function init_task_cards(tag_id) {
             'card_title': '',
             'card_text': 'Given a verb sense, generate the semantic roles for each 2-second interval. Entities within and across time-steps should be co-referenced.',
             'card_img': '/assets/VidSitu_logos_v2/VidSitSemantic.svg',
+            'card_img_link': 'https://leaderboard.allenai.org/vidsitu-semantic-roles/submissions/public',
             'card_popimg': '/assets/modal_imgs/srl_pred_only-min3.png',
             'pimg_txt': 'Role Example'
         },
@@ -177,6 +186,7 @@ function init_task_cards(tag_id) {
             'card_title': '',
             'card_text': 'Given the verbs and semantic roles for two events, predict how the events are related to each other by classifying among 4 event-relation types.',
             'card_img': '/assets/VidSitu_logos_v2/VidSitEvent.svg',
+            'card_img_link': 'https://leaderboard.allenai.org/vidsitu-event-relations/submissions/public',
             'card_popimg': '/assets/modal_imgs/evrel_only-min3.png',
             'pimg_txt': 'Relation Example'
         },
